@@ -4,9 +4,9 @@ require 'byebug'
 
 require 'rest-client'
 
-require "./lokalise/constants.rb"
-require "./lokalise/version.rb"
-require "./lokalise/urls.rb"
+require "./lokalise/constants"
+require "./lokalise/version"
+require "./lokalise/urls"
 
 module Lokalise
   if ENV['LOKALISE_ACCESS_TOKEN']
