@@ -1,7 +1,3 @@
-require 'JSON'
-require 'URI'
-require 'byebug'
-
 require 'rest-client'
 
 require "lokalise/constants"
