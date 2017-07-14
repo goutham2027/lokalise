@@ -34,7 +34,7 @@ module Lokalise
     end
   end
 
-  def self.import_keys(project_id, file_path, options)
+  def self.import_keys(project_id, file_path, options={})
     if options_match?(options, 'import')
       params = DEFAULT_PARAMS.clone
       params['id'] = project_id
@@ -47,7 +47,7 @@ module Lokalise
     end
   end
 
-  def self.export_keys(project_id, type, options)
+  def self.export_keys(project_id, type, options={})
     if options_match?(options, 'export')
       params = DEFAULT_PARAMS.clone
       params['id'] = project_id

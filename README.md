@@ -1,8 +1,6 @@
 # Lokalise
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lokalise`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Lokalise gem is a wrapper around the Lokalise REST API (https://lokalise.co/).
 
 ## Installation
 
@@ -21,8 +19,33 @@ Or install it yourself as:
     $ gem install lokalise
 
 ## Usage
+Set `LOKALISE_ACCESS_TOKEN=<your_lokalise_api_access_token>` as
+environment variable
 
-TODO: Write usage instructions here
+```
+require 'lokalise'
+
+Lokalise.alive? # to test the conenction
+
+Lokalise.get_projects # to retrieve all projects
+
+Lokalise.get_project_languages(project_id) # to retrieve language
+support in the project
+
+# to import keys
+# check https://lokalise.co/apidocs#import for import options
+# options is a hash and optional.
+Lokalise.import_keys(<project_id>, <path/to/keys_file>, options)
+eg: options = {'lang_iso': 'en_US'}
+
+# to export keys
+# check https://lokalise.co/apidocs#export for export options
+# type is the file format to export
+# options is a hash and optional.
+Lokalise.export_keys(<project_id, <type>, options)
+
+```
+
 
 ## Development
 
