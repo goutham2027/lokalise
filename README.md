@@ -33,10 +33,15 @@ Lokalise.get_project_languages(project_id) # to retrieve language
 support in the project
 
 # to import keys
-# check https://lokalise.co/apidocs#import for import options
-# options is a hash and optional.
-Lokalise.import_keys(<project_id>, <path/to/keys_file>, options)
-eg: options = {'lang_iso': 'en_US'}
+Lokalise.import_keys(<project_id>, <path/to/keys_file>, <lang_iso>, options)
+eg: options = {
+               replace: true,
+               fill_empty: false,
+               distinguish: false,
+               hidden: false,
+               tags: ['main release', 'supertag'].to_json,
+               replace_breaks: true
+              }
 
 # to export keys
 # check https://lokalise.co/apidocs#export for export options

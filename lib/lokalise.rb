@@ -34,16 +34,19 @@ module Lokalise
     end
   end
 
-  def self.import_keys(project_id, file_path, options={})
+  def self.import_keys(project_id, file_path, lang_iso, options={})
     if options_match?(options, 'import')
       params = DEFAULT_PARAMS.clone
       params['id'] = project_id
       params['file'] = File.new(file_path)
+      params['lang_iso'] = lang_iso
       params.update(options)
 
       url = construct_api_url(Lokalise::URLS[:import])
       res = RestClient.post(url, params)
       JSON.parse(res)["response"]["message"]
+    else
+      "Incorrect optional params"
     end
   end
 
